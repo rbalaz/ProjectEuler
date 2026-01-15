@@ -1,16 +1,5 @@
 # Find the sum of all products whose multiplicand/multiplier/product identity can be written as a 1 through 9 pandigital.
 
-function all_factors(n)
-    factors = []
-    for i in 1:floor(Int, sqrt(n))
-        if n % i == 0
-            push!(factors, i)
-            push!(factors, Int(n / i))
-        end
-    end
-    return factors
-end
-
 function is_pandigital(product, multiplicand, multiplier)
     concatenated_digits = string(product) * string(multiplicand) * string(multiplier)
     if length(concatenated_digits) != 9
@@ -24,9 +13,12 @@ function is_pandigital(product, multiplicand, multiplier)
     return true
 end
 
+include("../Utilities/miscellaneous_utilities.jl")
+using .MiscellaneousUtilities
+
 products = []
 for i = 1:9999
-    factors = all_factors(i)
+    factors = get_factors(i)
     for factor in factors
         if is_pandigital(i, factor, Int(i / factor)) == true
             if !in(i, products)

@@ -1,17 +1,5 @@
 # Find the sum of the only eleven primes that are both truncatable from left to right and right to left.
 
-function is_prime(n::Int)
-    if n < 2
-        return false
-    end
-    for i in 2:floor(Int, sqrt(n))
-        if n % i == 0
-            return false
-        end
-    end
-    return true
-end
-
 function is_left_truncatable_prime(number_string, primes_list)
     for i in 1:length(number_string)
         if !(parse(Int, number_string[i:end]) in primes_list)
@@ -31,6 +19,9 @@ function is_right_truncatable_prime(number_string, primes_list)
 
     return true
 end
+
+include("../Utilities/primes_utilities.jl")
+using .PrimeUtilities
 
 truncatable_primes = []
 primes_list = [2, 3, 5, 7]

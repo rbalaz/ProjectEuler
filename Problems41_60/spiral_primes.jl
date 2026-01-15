@@ -1,17 +1,7 @@
 # What is the side length of the square spiral for which the ratio of primes along both diagonals first falls below
 
-function is_prime(n::Int)
-    if n <= 1
-        return false
-    end
-    for i in 2:floor(Int, sqrt(n))
-        if n % i == 0
-            return false
-        end
-    end
-    return true
-end
-
+include("../Utilities/primes_utilities.jl")
+using .PrimeUtilities
 
 spiral_length = 3
 prime_numbers = 0

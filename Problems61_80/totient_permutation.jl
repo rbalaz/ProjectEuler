@@ -1,21 +1,9 @@
 # Find the value of n, 1 < n < 10^7, for which φ(n) is a permutation of n and the ratio n/φ(n) produces a minimum.
 
-function is_permutation(a, b)
-    return sort(digits(a)) == sort(digits(b))
-end
-
-function compute_totients(limit)
-    phi = collect(1:limit)
-    phi[1] = 1
-    for i in 2:limit
-        if phi[i] == i  # i is prime
-            for j in i:i:limit
-                phi[j] -= phi[j] ÷ i
-            end
-        end
-    end
-    return phi
-end
+include("../Utilities/totient_utilities.jl")
+using .TotientUtlities
+include("../Utilities/combinatorics_utilities.jl")
+using .CombinatoricsUtilities
 
 limit = 10_000_000
 phi = compute_totients(limit)

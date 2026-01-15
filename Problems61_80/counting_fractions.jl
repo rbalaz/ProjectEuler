@@ -1,17 +1,7 @@
 # Counting the number of reduced proper fractions for d ≤ 1,000,000
 
-function compute_totients(limit)
-    phi = collect(1:limit)
-    phi[1] = 1
-    for i in 2:limit
-        if phi[i] == i  # i is prime
-            for j in i:i:limit
-                phi[j] -= phi[j] ÷ i
-            end
-        end
-    end
-    return phi
-end
+include("../Utilities/totient_utilities.jl")
+using .TotientUtlities
 
 limit = 1_000_000
 phi = compute_totients(limit)

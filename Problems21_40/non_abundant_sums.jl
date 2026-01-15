@@ -1,18 +1,5 @@
 # Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 
-function get_factors(n)
-    factors = []
-    for i in 1:floor(Int, sqrt(n))
-        if n % i == 0
-            push!(factors, i)
-            if i != n / i
-                push!(factors, n / i)
-            end
-        end
-    end
-    return factors
-end
-
 function get_abundant_numbers(limit)
     abundant_numbers = []
     for i=1:limit
@@ -35,6 +22,9 @@ function get_abundant_sums(numbers)
     end
     return sort(unique(abundant_numbers_sums))
 end
+
+include("../Utilities/miscellaneous_utilities.jl")
+using .MiscellaneousUtilities
 
 limit = 28123
 relevant_numbers = []

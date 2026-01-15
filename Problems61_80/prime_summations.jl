@@ -1,28 +1,5 @@
 # What is the first value which can be written as the sum of primes in over five thousand different ways?
 
-function generate_primes_up_to(limit)
-    primes = Int[]
-    for i in 2:limit
-        if is_prime(i)
-            push!(primes, i)
-        end
-    end
-
-    return primes
-end
-
-function is_prime(n)
-    if n <= 1
-        return false
-    end
-    for i in 2:floor(Int, sqrt(n))
-        if n % i == 0
-            return false
-        end
-    end
-    return true
-end
-
 function calculate_combinations(current_combination, combinations, primes, primes_index, limit)
     current_primes_index = primes_index
     while true
@@ -40,6 +17,9 @@ function calculate_combinations(current_combination, combinations, primes, prime
         end
     end
 end
+
+include("../Utilities/primes_utilities.jl")
+using .PrimeUtilities
 
 limit = 5000
 primes = generate_primes_up_to(limit)

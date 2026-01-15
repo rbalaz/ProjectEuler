@@ -1,17 +1,5 @@
 # Find largest prime pandigital number
 
-function is_prime(n)
-    if n < 2
-        return false
-    end
-    for i in 2:floor(Int, sqrt(n))
-        if n % i == 0
-            return false
-        end
-    end
-    return true
-end
-
 function is_pandigital(number_string)
     for i=1:length(number_string)
         if !occursin(string(i), number_string)
@@ -21,6 +9,9 @@ function is_pandigital(number_string)
 
     return true
 end
+
+include("../Utilities/primes_utilities.jl")
+using .PrimeUtilities
 
 largest_pandigital_prime = 0
 for i=1:999999999

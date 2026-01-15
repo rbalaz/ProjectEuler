@@ -1,17 +1,5 @@
 # How many circular primes are there below one million?
 
-function is_prime(n)
-    if n < 2
-        return false
-    end
-    for i in 2:floor(Int, sqrt(n))
-        if n % i == 0
-            return false
-        end
-    end
-    return true
-end
-
 function get_circular_transformations(n)
     circular_transformations = []
     string_number = string(n)
@@ -46,7 +34,8 @@ function get_circular_primes(n)
     return circular_primes
 end
 
-
+include("../Utilities/primes_utilities.jl")
+using .PrimeUtilities
 
 println("Circular primes below one hundred: ", get_circular_primes(100))
 println("Number of circular primes below one hundred: ", length(get_circular_primes(100)))

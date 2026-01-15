@@ -1,16 +1,7 @@
 # Find the product of the coefficients, a and b for the quadratic expression that produces the maximum number of primes for consecutive values of n, starting with n = 0.
 
-function is_prime(n)
-    if n < 2
-        return false
-    end
-    for i = 2:floor(Int, sqrt(n))
-        if n % i == 0
-            return false
-        end
-    end
-    return true
-end
+include("../Utilities/primes_utilities.jl")
+using .PrimeUtilities
 
 maximum_number_of_primes = 0
 product_of_coefficients = 0

@@ -1,17 +1,7 @@
 # Find the pair of pentagon numbers, Pj and Pk, such that |Pk - Pj| is minimized and Pj + Pk is also pentagonal.
 
-function generate_pentagon_number(n)
-    return Int(n*(3*n - 1)/2)
-end
-
-function generate_pentagon_numbers(n)
-    pentagon_numbers = []
-    for i = 1:n
-        push!(pentagon_numbers, generate_pentagon_number(i))
-    end
-
-    return pentagon_numbers
-end
+include("../Utilities/miscellaneous_utilities.jl")
+using .MiscellaneousUtilities
 
 numbers_count = 10000
 minimal_difference = 2^32 - 1

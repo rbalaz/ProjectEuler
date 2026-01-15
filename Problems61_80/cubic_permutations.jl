@@ -1,8 +1,7 @@
 # Find the smallest cube for which exactly five permutations of its digits are cube
 
-function is_permutation(a, b)
-    return sort(collect(string(a))) == sort(collect(string(b)))
-end
+include("../Utilities/combinatorics_utilities.jl")
+using .CombinatoricsUtilities
 
 exponent = 1
 iterator = 1

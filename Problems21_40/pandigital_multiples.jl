@@ -28,7 +28,6 @@ largest_concatenated_product = 0
 for i=1:9999
     pandigital_string = pandigital_multiplication(i)
     if is_pandigital(pandigital_string) && parse(Int, pandigital_string) > largest_concatenated_product
-        println("Found pandigital number: ", pandigital_string, " for i: ", i)
         global largest_concatenated_product = parse(Int, pandigital_string)
     end
 end

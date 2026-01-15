@@ -1,17 +1,5 @@
 # Find the smallest prime which, by replacing part of the number (not necessarily adjacent digits) with the same digit, is part of an eight prime value family.
 
-function is_prime(n)
-    if n < 2
-        return false
-    end
-    for i in 2:floor(Int, sqrt(n))
-        if n % i == 0
-            return false
-        end
-    end
-    return true
-end
-
 function combinations_of_set(set_size)
     combinations = []
     for i=1:set_size
@@ -82,6 +70,9 @@ function replace_at_index(str, index, replacement)
     str_array[index] = replacement
     return join(str_array)
 end
+
+include("../Utilities/primes_utilities.jl")
+using .PrimeUtilities
 
 current_value = 0
 family_size = 8

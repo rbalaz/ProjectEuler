@@ -1,17 +1,7 @@
 # Which prime, below one-million, can be written as the sum of the most consecutive primes?
 
-function is_prime(n)
-    if n < 2
-        return false
-    end
-    for i in 2:floor(Int, sqrt(n))
-        if n % i == 0
-            return false
-        end
-    end
-    return true
-end
-
+include("../Utilities/primes_utilities.jl")
+using .PrimeUtilities
 
 primes = []
 for i=1:1_000_000

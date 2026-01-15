@@ -1,16 +1,5 @@
 # Find denominator of product of digit cancelling fractions, less than one in value and containing two digits in numerator and denominator
 
-function all_factors(n)
-    factors = []
-    for i in 1:floor(Int, sqrt(n))
-        if n % i == 0
-            push!(factors, i)
-            push!(factors, Int(n / i))
-        end
-    end
-    return factors
-end
-
 numerators = []
 denominators = []
 
@@ -36,6 +25,9 @@ for i=10:99
     end
 end
 
+include("../Utilities/miscellaneous_utilities.jl")
+using .MiscellaneousUtilities
+
 println("Numerators: ", numerators)
 println("Denominators: ", denominators)
 
@@ -43,8 +35,8 @@ final_fraction_numerator = prod(numerators)
 final_fraction_denominator = prod(denominators)
 
 while true
-    numerator_factors = all_factors(final_fraction_numerator)
-    denominator_factors = all_factors(final_fraction_denominator)
+    numerator_factors = get_factors(final_fraction_numerator)
+    denominator_factors = get_factors(final_fraction_denominator)
     common_factors = intersect(numerator_factors, denominator_factors)
     if length(common_factors) == 1
         break

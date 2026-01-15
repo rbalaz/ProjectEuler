@@ -10,18 +10,6 @@ function find_factors(n)
     return factors
 end
 
-function is_prime(n)
-    if n < 2
-        return false
-    end
-    for i in 2:floor(Int, sqrt(n))
-        if n % i == 0
-            return false
-        end
-    end
-    return true
-end
-
 function distinct_prime_factors(n)
     current_number = 1
     consecutive_count = 1
@@ -49,6 +37,9 @@ function distinct_prime_factors(n)
 
     return current_number - n + 1
 end
+
+include("../Utilities/primes_utilities.jl")
+using .PrimeUtilities
 
 first_number = distinct_prime_factors(2)
 println("The first of the two consecutive integers to have two distinct prime factors is: ", first_number)

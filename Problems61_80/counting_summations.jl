@@ -1,3 +1,5 @@
+# How many different ways can one hundred be written as a sum of at least two positive integers?
+
 function counting_summations(n)
     dp = zeros(Int, n+1)
     dp[1] = 1

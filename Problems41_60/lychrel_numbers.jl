@@ -1,11 +1,6 @@
 # How many Lychrel numbers are there below ten-thousand?
 # # A Lychrel number is a natural number that cannot form a palindrome through the iterative process of repeatedly reversing its digits and adding the resulting numbers.
 
-function is_palindrome(n)
-    s = string(n)
-    return s == reverse(s)
-end
-
 function is_lychrel(n, max_iterations=50)
     current_value = BigInt(n)
     for _=1:max_iterations
@@ -18,6 +13,9 @@ function is_lychrel(n, max_iterations=50)
 
     return true
 end
+
+include("../Utilities/combinatorics_utilities.jl")
+using .CombinatoricsUtilities
 
 lychrel_numbers = []
 

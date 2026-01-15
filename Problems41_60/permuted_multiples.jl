@@ -1,8 +1,7 @@
 # Find the smallest positive integer, x, such that 2x, 3x, 4x, 5x, and 6x are permutations of the digits of x.
 
-function is_permutation(a, b)
-    return sort(collect(string(a))) == sort(collect(string(b)))
-end
+include("../Utilities/combinatorics_utilities.jl")
+using .CombinatoricsUtilities
 
 current_number = 1
 while true

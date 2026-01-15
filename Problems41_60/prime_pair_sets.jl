@@ -1,17 +1,5 @@
 # Find the lowest sum for a set of five primes for which any two primes concatenate to produce another prime.
 
-function is_prime(n::Int)
-    if n < 2
-        return false
-    end
-    for i in 2:floor(Int, sqrt(n))
-        if n % i == 0
-            return false
-        end
-    end
-    return true
-end
-
 const prime_cache = Dict{Int, Bool}()
 
 function is_prime_cached(n::Int)
@@ -85,6 +73,9 @@ function sieve_of_eratosthenes(limit::Int)
     
     return [i for i in 2:limit if is_prime[i]]
 end
+
+include("../Utilities/primes_utilities.jl")
+using .PrimeUtilities
 
 primes = sieve_of_eratosthenes(12000)
 

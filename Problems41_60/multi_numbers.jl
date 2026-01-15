@@ -10,16 +10,6 @@ function generate_triangle_numbers(n)
     return triangle_numbers
 end
 
-function generate_pentagon_numbers(n)
-    pentagon_numbers = []
-    for i = 1:n
-        pentagon_number = Int(i*(3*i - 1)/2)
-        push!(pentagon_numbers, pentagon_number)
-    end
-
-    return pentagon_numbers
-end
-
 function generate_hexagonal_numbers(n)
     hexagonal_numbers = []
     for i = 1:n
@@ -29,6 +19,9 @@ function generate_hexagonal_numbers(n)
 
     return hexagonal_numbers
 end
+
+include("../Utilities/miscellaneous_utilities.jl")
+using .MiscellaneousUtilities
 
 numbers_count = 100000
 triangle_numbers = generate_triangle_numbers(numbers_count)

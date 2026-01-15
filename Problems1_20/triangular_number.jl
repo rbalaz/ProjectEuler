@@ -1,17 +1,7 @@
 # First triangular numbers to have over five hundred divisors
 
-function get_factors(n)
-    factors = []
-    for i = 1:floor(Int, sqrt(n))
-        if n % i == 0
-            push!(factors, i)
-            if i != n / i
-                push!(factors, n / i)
-            end
-        end
-    end
-    return factors
-end
+include("../Utilities/miscellaneous_utilities.jl")
+using .MiscellaneousUtilities
 
 i = 1
 while true

@@ -1,20 +1,9 @@
 # Find increasing arithmetic sequence of 4 digit prime numbers that are permutations of each other
 
-function is_prime(n)
-    if n < 2
-        return false
-    end
-    for i in 2:floor(Int, sqrt(n))
-        if n % i == 0
-            return false
-        end
-    end
-    return true
-end
-
-function is_permutation(a, b)
-    return sort(collect(string(a))) == sort(collect(string(b)))
-end
+include("../Utilities/primes_utilities.jl")
+using .PrimeUtilities
+include("../Utilities/combinatorics_utilities.jl")
+using .CombinatoricsUtilities
 
 four_digit_primes = []
 for i=1000:9999

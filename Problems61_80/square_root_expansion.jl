@@ -1,3 +1,5 @@
+# For the first one hundred natural numbers, find the total of the digital sums of the first one hundred decimal digits for all the irrational square roots.
+
 function heron_approximation(S)
     approximation = Int(ceil(sqrt(S))) # Initial guess
     # Exact operations with fractions required to get results with arbitrary precision
