@@ -1,3 +1,4 @@
+# Find the first arrangement of blue and red discs in a box such that the probability of taking two blue discs at random is exactly 1/2, and the total number of discs exceeds 10^12.
 
 # x + y = z
 
