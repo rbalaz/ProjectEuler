@@ -1,6 +1,6 @@
 module CombinatoricsUtilities
 
-export is_permutation, is_palindrome
+export is_permutation, is_palindrome    
 
 function is_permutation(a, b)
     return sort(digits(a)) == sort(digits(b))

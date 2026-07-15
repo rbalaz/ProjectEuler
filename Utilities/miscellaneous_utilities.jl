@@ -1,6 +1,6 @@
 module MiscellaneousUtilities
 
-export compute_totients, generate_pentagon_numbers, get_factors
+export compute_totients, generate_pentagon_numbers, get_factors, get_key_with_minimum_value
 
 function compute_totients(limit)
     phi = collect(1:limit)
@@ -30,12 +30,24 @@ function get_factors(n)
     for i in 1:floor(Int, sqrt(n))
         if n % i == 0
             push!(factors, i)
-            if i != n / i
-                push!(factors, n / i)
+            if i != n ÷ i
+                push!(factors, n ÷ i)
             end
         end
     end
     return factors
+end
+
+function get_key_with_minimum_value(dictionary)
+  min_key = nothing
+  min_value = typemax(Int)
+  for (key, value) in dictionary
+    if value < min_value
+      min_key = key
+      min_value = value
+    end
+  end
+  return min_key
 end
 
 end
